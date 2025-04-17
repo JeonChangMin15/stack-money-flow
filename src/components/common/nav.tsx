@@ -1,8 +1,8 @@
 "use client";
 
-import { Home, ChartLine, PieChart } from "lucide-react";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Home, ChartLine, PieChart } from "lucide-react";
 import clsx from "clsx";
 
 export default function Nav() {
