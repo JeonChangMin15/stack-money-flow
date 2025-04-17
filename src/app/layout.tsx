@@ -37,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="flex justify-center bg-gray-100 h-dvh">
-            <div className="relative w-full max-w-sm bg-white h-dvh shadow-md overflow-auto">
+            <div className="relative w-full max-w-md bg-white dark:bg-gray-900 h-dvh shadow-md overflow-auto">
               <Header />
               {children}
               <Nav />
