@@ -21,7 +21,7 @@ const NumberInput = ({ label, unit, value, onChange }: Props) => {
     <div className="relative grid w-full max-w-sm items-center gap-1.5">
       <Label htmlFor="number">{label}</Label>
       <Input
-        className="text-right pr-6 text-blue-700"
+        className="text-right pr-6 text-gray-700 dark:text-white"
         id="number"
         type="text"
         inputMode="numeric"

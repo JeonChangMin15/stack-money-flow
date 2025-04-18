@@ -28,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <ThemeProvider
@@ -37,9 +38,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="flex justify-center bg-gray-100 h-dvh">
-            <div className="relative w-full max-w-md bg-white dark:bg-gray-900 h-dvh shadow-md overflow-auto">
+            <div className="relative w-full max-w-md bg-white dark:bg-gray-900 shadow-md overflow-auto">
               <Header />
-              {children}
+              <div className="min-h-[calc(100dvh-130px)]">{children}</div>
               <Nav />
             </div>
           </main>

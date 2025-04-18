@@ -9,7 +9,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   return (
-    <nav className="absolute bottom-0 left-0 w-full max-w-sm mx-auto bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 z-50">
+    <nav className="sticky bottom-0 left-0 w-full max-w-sm mx-auto bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800 z-50">
       <div className="flex justify-between items-center px-6 py-2">
         {navItems.map(({ icon: Icon, label, route }) => {
           const isActive = pathname === route;
