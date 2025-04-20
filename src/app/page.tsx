@@ -64,7 +64,7 @@ export default function Home() {
   };
 
   return (
-    <div className="grid gap-5 bg-white dark:bg-gray-900 px-8 py-8">
+    <div className="grid gap-5">
       <NumberInput
         label="초기 투자 금액"
         unit="원"
