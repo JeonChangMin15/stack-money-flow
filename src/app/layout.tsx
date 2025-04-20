@@ -40,7 +40,7 @@ export default function RootLayout({
           <main className="flex justify-center bg-gray-100 h-dvh">
             <div className="relative w-full max-w-md bg-white dark:bg-gray-900 shadow-md overflow-auto">
               <Header />
-              <div className="min-h-[calc(100dvh-130px)] bg-white dark:bg-gray-900 px-8 py-8">
+              <div className="min-h-[calc(100dvh-120px)] bg-white dark:bg-gray-900 px-8 py-8">
                 {children}
               </div>
               <Nav />

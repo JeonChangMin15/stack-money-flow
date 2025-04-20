@@ -135,7 +135,26 @@ const Analyze = () => {
         시뮬레이션 분석하기
       </Button>
       {simulationResult.length > 0 && (
-        <AnalyzeChart simulationResult={simulationResult} />
+        <div className="grid gap-4">
+          <AnalyzeChart simulationResult={simulationResult} />
+          <span>투자별 최종 금액</span>
+          {simulation.map(
+            ({ id, initialAmount, monthAmount, averageProfit }) => (
+              <div key={id} className="flex gap-4">
+                <span>투자 {id}:</span>
+                <span className="font-bold">
+                  {calculateTotal({
+                    initialAmount,
+                    monthAmount,
+                    averageProfit,
+                    investTerm,
+                  }).toLocaleString()}{" "}
+                  원
+                </span>
+              </div>
+            )
+          )}
+        </div>
       )}
     </div>
   );
