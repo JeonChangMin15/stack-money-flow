@@ -64,7 +64,7 @@ export default function Home() {
   };
 
   return (
-    <div className="grid gap-5">
+    <section className="grid gap-5">
       <NumberInput
         label="초기 투자 금액"
         unit="원"
@@ -112,6 +112,6 @@ export default function Home() {
           <ProfitTable yearRecord={yearRecord} />
         </div>
       )}
-    </div>
+    </section>
   );
 }
