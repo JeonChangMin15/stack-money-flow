@@ -3,7 +3,7 @@
 import { useState } from "react";
 import NumberInput from "@/components/common/input";
 import { Button } from "@/components/ui/button";
-import { AnalyzeChart } from "./chart";
+import { AnalyzeChart } from "@/components/feature/analyze/chart";
 import { calculateTotal } from "@/util/calUtils";
 
 const Analyze = () => {

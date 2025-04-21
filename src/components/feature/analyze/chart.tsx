@@ -1,7 +1,6 @@
 "use client";
 
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
 import {
   Card,
   CardContent,
@@ -18,26 +17,26 @@ import {
   ChartTooltip,
 } from "@/components/ui/chart";
 
-const chartConfig = {
-  sim1: {
-    label: "투자 1",
-    color: "#2563eb",
-  },
-  sim2: {
-    label: "투자 2",
-    color: "#60a5fa",
-  },
-  sim3: {
-    label: "투자 3",
-    color: "#a7acf5",
-  },
-} satisfies ChartConfig;
-
 interface Props {
   simulationResult: Record<string, number>[];
 }
 
 export function AnalyzeChart({ simulationResult }: Props) {
+  const chartConfig = {
+    sim1: {
+      label: "투자 1",
+      color: "#2563eb",
+    },
+    sim2: {
+      label: "투자 2",
+      color: "#FF8282",
+    },
+    sim3: {
+      label: "투자 3",
+      color: "#81E7AF",
+    },
+  } satisfies ChartConfig;
+
   return (
     <Card>
       <CardHeader>
@@ -62,7 +61,10 @@ export function AnalyzeChart({ simulationResult }: Props) {
               tickMargin={8}
             />
             {/* <YAxis allowDataOverflow={true} /> */}
-            <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+            <ChartTooltip
+              cursor={false}
+              content={<ChartTooltipContent hideLabel />}
+            />
             <ChartLegend content={<ChartLegendContent />} />
 
             <Line
@@ -72,20 +74,25 @@ export function AnalyzeChart({ simulationResult }: Props) {
               strokeWidth={2}
               dot={false}
             />
-            <Line
-              dataKey="sim2"
-              type="monotone"
-              stroke="var(--color-sim2)"
-              strokeWidth={2}
-              dot={false}
-            />
-            <Line
-              dataKey="sim3"
-              type="monotone"
-              stroke="var(--color-sim3)"
-              strokeWidth={2}
-              dot={false}
-            />
+            {simulationResult[0].sim2 && (
+              <Line
+                dataKey="sim2"
+                type="monotone"
+                stroke="var(--color-sim2)"
+                strokeWidth={2}
+                dot={false}
+              />
+            )}
+
+            {simulationResult[0].sim3 && (
+              <Line
+                dataKey="sim3"
+                type="monotone"
+                stroke="var(--color-sim3)"
+                strokeWidth={2}
+                dot={false}
+              />
+            )}
           </LineChart>
         </ChartContainer>
       </CardContent>

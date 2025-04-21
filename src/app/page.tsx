@@ -3,7 +3,7 @@
 import { useState } from "react";
 import NumberInput from "@/components/common/input";
 import { Button } from "@/components/ui/button";
-import ProfitTable from "@/components/common/table";
+import ProfitTable from "@/components/feature/home/table";
 import {
   calculateTotal,
   calculateReturnRate,
