@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import NumberInput from "@/components/common/input";
-import { Button } from "@/components/ui/button";
-import { AnalyzeChart } from "@/components/feature/analyze/chart";
-import { calculateTotal } from "@/util/calUtils";
+import { useState } from 'react';
+import NumberInput from '@/components/common/input';
+import { Button } from '@/components/ui/button';
+import { AnalyzeChart } from '@/components/feature/analyze/chart';
+import { calculateTotal } from '@/util/calUtils';
 
 const Analyze = () => {
-  const [investTerm, setInvestTerm] = useState<string>("");
+  const [investTerm, setInvestTerm] = useState<string>('');
   const [id, setId] = useState(2);
   const [simulation, setSimulation] = useState([
     {
       id: 1,
-      initialAmount: "",
-      monthAmount: "",
-      averageProfit: "",
+      initialAmount: '',
+      monthAmount: '',
+      averageProfit: '',
     },
   ]);
   const [simulationResult, setSimulationResult] = useState<
@@ -25,7 +25,7 @@ const Analyze = () => {
     if (id === 4) return;
     setSimulation((prev) => [
       ...prev,
-      { id, initialAmount: "", monthAmount: "", averageProfit: "" },
+      { id, initialAmount: '', monthAmount: '', averageProfit: '' },
     ]);
     setId((prev) => prev + 1);
   };
@@ -73,14 +73,7 @@ const Analyze = () => {
       <div className="flex justify-between">
         <span className="text-lg">투자 시나리오 비교</span>
         <Button
-          className="
-        w-[150px]      
-        ml-auto         
-        transition-transform duration-150 
-        active:scale-95 
-        active:shadow-inner
-      dark:active:bg-gray-800
-      "
+          className="ml-auto w-[150px] transition-transform duration-150 active:scale-95 active:shadow-inner dark:active:bg-gray-800"
           variant="secondary"
           onClick={addSimulation}
         >
@@ -94,14 +87,14 @@ const Analyze = () => {
         onChange={setInvestTerm}
       />
       {simulation.map(({ id, initialAmount, monthAmount, averageProfit }) => (
-        <div className="grid gap-3 shadow-md rounded-md p-4" key={id}>
+        <div className="grid gap-3 rounded-md p-4 shadow-md" key={id}>
           <span>투자 {id}</span>
           <NumberInput
             label="초기 투자 금액"
             unit="원"
             value={initialAmount}
             onChange={(newValue) =>
-              handleInputSimulation(newValue, id, "initialAmount")
+              handleInputSimulation(newValue, id, 'initialAmount')
             }
           />
           <NumberInput
@@ -109,7 +102,7 @@ const Analyze = () => {
             unit="원"
             value={monthAmount}
             onChange={(newValue) =>
-              handleInputSimulation(newValue, id, "monthAmount")
+              handleInputSimulation(newValue, id, 'monthAmount')
             }
           />
           <NumberInput
@@ -117,18 +110,13 @@ const Analyze = () => {
             unit="%"
             value={averageProfit}
             onChange={(newValue) =>
-              handleInputSimulation(newValue, id, "averageProfit")
+              handleInputSimulation(newValue, id, 'averageProfit')
             }
           />
         </div>
       ))}
       <Button
-        className=" 
-        transition-transform duration-150 
-        active:scale-95 
-        active:shadow-inner
-      dark:active:bg-gray-800
-      "
+        className="transition-transform duration-150 active:scale-95 active:shadow-inner dark:active:bg-gray-800"
         variant="secondary"
         onClick={analyzeSimulation}
       >
@@ -148,7 +136,7 @@ const Analyze = () => {
                     monthAmount,
                     averageProfit,
                     investTerm,
-                  }).toLocaleString()}{" "}
+                  }).toLocaleString()}{' '}
                   원
                 </span>
               </div>

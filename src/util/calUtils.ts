@@ -1,4 +1,4 @@
-import { TotalYearData } from "@/types/type";
+import { TotalYearData } from '@/types/type';
 
 interface TotalParams {
   initialAmount: string;
@@ -8,7 +8,7 @@ interface TotalParams {
 }
 
 function parseNumber(value: string): number {
-  const cleaned = value.trim().replace(/,/g, ""); // 콤마 제거
+  const cleaned = value.trim().replace(/,/g, ''); // 콤마 제거
 
   return parseFloat(cleaned);
 }
@@ -73,7 +73,7 @@ export function calculatePrincipal({
   initialAmount,
   monthAmount,
   investTerm,
-}: Omit<TotalParams, "averageProfit">): number {
+}: Omit<TotalParams, 'averageProfit'>): number {
   const P0 = parseNumber(initialAmount); // 초기 원금
   const PMT = parseNumber(monthAmount); // 매월 적립액
   const years = parseNumber(investTerm); // 투자 기간(년)

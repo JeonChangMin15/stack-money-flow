@@ -1,0 +1,8 @@
+# 캐시/빌드 결과, 에디터/OS 파일 무시
+node_modules
+.next
+dist
+out
+public
+.vscode
+.DS_Store

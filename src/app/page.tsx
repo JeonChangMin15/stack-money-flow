@@ -1,23 +1,23 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import NumberInput from "@/components/common/input";
-import { Button } from "@/components/ui/button";
-import ProfitTable from "@/components/feature/home/table";
+import { useState } from 'react';
+import NumberInput from '@/components/common/input';
+import { Button } from '@/components/ui/button';
+import ProfitTable from '@/components/feature/home/table';
 import {
   calculateTotal,
   calculateReturnRate,
   calculatePrincipal,
   calculateTotalYearTable,
-} from "@/util/calUtils";
+} from '@/util/calUtils';
 
-import { InfoItem, TotalYearData } from "@/types/type";
+import { InfoItem, TotalYearData } from '@/types/type';
 
 export default function Home() {
-  const [initialAmount, setInitialAmount] = useState<string>("");
-  const [monthAmount, setMonthAmount] = useState<string>("");
-  const [investTerm, setInvestTerm] = useState<string>("");
-  const [averageProfit, setAverageProfit] = useState<string>("");
+  const [initialAmount, setInitialAmount] = useState<string>('');
+  const [monthAmount, setMonthAmount] = useState<string>('');
+  const [investTerm, setInvestTerm] = useState<string>('');
+  const [averageProfit, setAverageProfit] = useState<string>('');
   const [totalAmount, setTotalAmount] = useState(0);
   const [totalProfit, setTotalProfit] = useState(0);
   const [totalCapital, setTotalCapital] = useState(0);
@@ -25,10 +25,10 @@ export default function Home() {
   const [yearRecord, setYearRecord] = useState<TotalYearData[]>([]);
 
   const infoItems: InfoItem[] = [
-    { label: "최종 금액", value: totalAmount, unit: "원" },
-    { label: "총 수익", value: totalProfit, unit: "원" },
-    { label: "투자 원금", value: totalCapital, unit: "원" },
-    { label: "수익률", value: rateOfReturn, unit: "%" },
+    { label: '최종 금액', value: totalAmount, unit: '원' },
+    { label: '총 수익', value: totalProfit, unit: '원' },
+    { label: '투자 원금', value: totalCapital, unit: '원' },
+    { label: '수익률', value: rateOfReturn, unit: '%' },
   ];
 
   const updateInvestResult = () => {
@@ -90,12 +90,7 @@ export default function Home() {
         onChange={setAverageProfit}
       />
       <Button
-        className="
-        transition-transform duration-150 
-        active:scale-95 
-        active:shadow-inner
-      dark:active:bg-gray-800
-      "
+        className="transition-transform duration-150 active:scale-95 active:shadow-inner dark:active:bg-gray-800"
         variant="secondary"
         onClick={updateInvestResult}
       >
@@ -105,8 +100,8 @@ export default function Home() {
         {infoItems.map(({ label, value, unit }) => (
           <div key={label} className="flex gap-3">
             <span>{label}:</span>
-            <span className="text-gray-700 dark:text-white font-bold">
-              {value > 0 ? `${value.toLocaleString()} ${unit}` : ""}
+            <span className="font-bold text-gray-700 dark:text-white">
+              {value > 0 ? `${value.toLocaleString()} ${unit}` : ''}
             </span>
           </div>
         ))}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import {
   Table,
@@ -7,8 +7,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
-import { TotalYearData } from "@/types/type";
+} from '@/components/ui/table';
+import { TotalYearData } from '@/types/type';
 
 interface Props {
   yearRecord: TotalYearData[];

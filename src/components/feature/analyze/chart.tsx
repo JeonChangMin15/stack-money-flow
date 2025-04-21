@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, XAxis } from 'recharts';
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from '@/components/ui/card';
 import {
   ChartConfig,
   ChartContainer,
@@ -15,7 +15,7 @@ import {
   ChartLegend,
   ChartLegendContent,
   ChartTooltip,
-} from "@/components/ui/chart";
+} from '@/components/ui/chart';
 
 interface Props {
   simulationResult: Record<string, number>[];
@@ -24,16 +24,16 @@ interface Props {
 export function AnalyzeChart({ simulationResult }: Props) {
   const chartConfig = {
     sim1: {
-      label: "투자 1",
-      color: "#2563eb",
+      label: '투자 1',
+      color: '#2563eb',
     },
     sim2: {
-      label: "투자 2",
-      color: "#FF8282",
+      label: '투자 2',
+      color: '#FF8282',
     },
     sim3: {
-      label: "투자 3",
-      color: "#81E7AF",
+      label: '투자 3',
+      color: '#81E7AF',
     },
   } satisfies ChartConfig;
 
