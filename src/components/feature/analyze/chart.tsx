@@ -25,15 +25,15 @@ export function AnalyzeChart({ simulationResult }: Props) {
   const chartConfig = {
     sim1: {
       label: '투자 1',
-      color: '#2563eb',
+      color: 'hsl(var(--chart-1))',
     },
     sim2: {
       label: '투자 2',
-      color: '#FF8282',
+      color: 'hsl(var(--chart-2))',
     },
     sim3: {
       label: '투자 3',
-      color: '#81E7AF',
+      color: 'hsl(var(--chart-3))',
     },
   } satisfies ChartConfig;
 
