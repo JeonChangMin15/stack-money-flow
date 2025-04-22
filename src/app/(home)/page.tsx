@@ -90,7 +90,7 @@ export default function Home() {
         onChange={setAverageProfit}
       />
       <Button
-        className="transition-transform duration-150 active:scale-95 active:shadow-inner dark:active:bg-gray-800"
+        className="btn-pressable"
         variant="secondary"
         onClick={updateInvestResult}
       >

@@ -12,3 +12,8 @@ export interface TotalYearData {
   /** 해당 연도 말 누적 원금 대비 수익률 (%) */
   rateOfReturn: number;
 }
+
+export interface AssetResult {
+  name: string;
+  total: number;
+}

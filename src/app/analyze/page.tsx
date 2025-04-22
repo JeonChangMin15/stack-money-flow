@@ -69,11 +69,11 @@ const Analyze = () => {
   };
 
   return (
-    <div className="grid gap-5">
+    <section className="grid gap-5">
       <div className="flex justify-between">
         <span className="text-lg">투자 시나리오 비교</span>
         <Button
-          className="ml-auto w-[150px] transition-transform duration-150 active:scale-95 active:shadow-inner dark:active:bg-gray-800"
+          className="btn-pressable ml-auto w-[150px]"
           variant="secondary"
           onClick={addSimulation}
         >
@@ -116,7 +116,7 @@ const Analyze = () => {
         </div>
       ))}
       <Button
-        className="transition-transform duration-150 active:scale-95 active:shadow-inner dark:active:bg-gray-800"
+        className="btn-pressable"
         variant="secondary"
         onClick={analyzeSimulation}
       >
@@ -144,7 +144,7 @@ const Analyze = () => {
           )}
         </div>
       )}
-    </div>
+    </section>
   );
 };
 
