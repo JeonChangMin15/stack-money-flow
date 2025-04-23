@@ -85,6 +85,7 @@ const Analyze = () => {
         unit="년"
         value={investTerm}
         onChange={setInvestTerm}
+        placeholder="적립 기간을 입력하세요"
       />
       {simulation.map(({ id, initialAmount, monthAmount, averageProfit }) => (
         <div className="grid gap-3 rounded-md p-4 shadow-md" key={id}>
@@ -96,6 +97,7 @@ const Analyze = () => {
             onChange={(newValue) =>
               handleInputSimulation(newValue, id, 'initialAmount')
             }
+            placeholder="초기 투자 금액을 입력하세요"
           />
           <NumberInput
             label="월 적립 금액"
@@ -104,6 +106,7 @@ const Analyze = () => {
             onChange={(newValue) =>
               handleInputSimulation(newValue, id, 'monthAmount')
             }
+            placeholder="월 적립 금액을 입력하세요"
           />
           <NumberInput
             label="연 평균 수익률"
@@ -112,6 +115,7 @@ const Analyze = () => {
             onChange={(newValue) =>
               handleInputSimulation(newValue, id, 'averageProfit')
             }
+            placeholder="연 평균 수익률을 입력하세요"
           />
         </div>
       ))}

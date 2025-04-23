@@ -3,12 +3,20 @@
 import * as React from 'react';
 import { Label, Pie, PieChart } from 'recharts';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
+  ChartLegend,
+  ChartLegendContent,
 } from '@/components/ui/chart';
 import { AssetResult } from '@/types/type';
 
@@ -99,9 +107,26 @@ export function AssetPieChart({ assetResult }: Props) {
                 }}
               />
             </Pie>
+            <ChartLegend
+              content={<ChartLegendContent nameKey="name" />}
+              className="-translate-y-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
+            />
           </PieChart>
         </ChartContainer>
       </CardContent>
+      <CardFooter className="flex flex-col items-start gap-2">
+        <div className="text-lg leading-none font-medium">자산별 비중</div>
+        <div className="grid gap-2">
+          {assetResult.map(({ name, total }, index) => (
+            <div className="flex gap-2" key={index}>
+              <span>{name}:</span>
+              <span className="font-bold">
+                {Math.round((100 * total) / totalSum)} %{' '}
+              </span>
+            </div>
+          ))}
+        </div>
+      </CardFooter>
     </Card>
   );
 }

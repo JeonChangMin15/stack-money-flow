@@ -7,9 +7,10 @@ interface Props {
   label: string;
   value: string;
   onChange: (newValue: string) => void;
+  placeholder: string;
 }
 
-const TextInput = ({ label, value, onChange }: Props) => {
+const TextInput = ({ label, value, onChange, placeholder }: Props) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
   };
@@ -23,6 +24,7 @@ const TextInput = ({ label, value, onChange }: Props) => {
         type="text"
         value={value}
         onChange={handleChange}
+        placeholder={placeholder}
       />
     </div>
   );

@@ -8,9 +8,16 @@ interface Props {
   unit: string;
   value: string;
   onChange: (newValue: string) => void;
+  placeholder: string;
 }
 
-const NumberInput = ({ label, unit, value, onChange }: Props) => {
+const NumberInput = ({
+  label,
+  unit,
+  value,
+  onChange,
+  placeholder = '',
+}: Props) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const onlyNums = e.target.value.replace(/,/g, '');
     const cleaned = onlyNums.replace(/\D/g, '');
@@ -23,13 +30,16 @@ const NumberInput = ({ label, unit, value, onChange }: Props) => {
     <div className="relative grid w-full max-w-sm items-center gap-1.5">
       <Label htmlFor="number">{label}</Label>
       <Input
-        className="pr-6 text-right text-gray-700 dark:text-white"
+        className={`pr-6 text-gray-700 dark:text-white ${
+          value ? 'text-right' : 'text-left'
+        }`}
         id="number"
         type="text"
         inputMode="numeric"
         pattern="[0-9,]*"
         value={value}
         onChange={handleChange}
+        placeholder={placeholder}
       />
       <span className="absolute top-6.5 right-2.5 dark:text-white">{unit}</span>
     </div>

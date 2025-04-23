@@ -70,24 +70,28 @@ export default function Home() {
         unit="원"
         value={initialAmount}
         onChange={setInitialAmount}
+        placeholder="초기 투자 금액을 입력하세요"
       />
       <NumberInput
         label="월 적립 금액"
         unit="원"
         value={monthAmount}
         onChange={setMonthAmount}
+        placeholder="월 적립 금액을 입력하세요"
       />
       <NumberInput
         label="적립 기간"
         unit="년"
         value={investTerm}
         onChange={setInvestTerm}
+        placeholder="적립 기간을 입력하세요"
       />
       <NumberInput
         label="연 평균 수익률"
         unit="%"
         value={averageProfit}
         onChange={setAverageProfit}
+        placeholder="연 평균 수익률을 입력하세요"
       />
       <Button
         className="btn-pressable"
