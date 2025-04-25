@@ -1,3 +1,6 @@
+'use client'; // next/script을 쓰기 위해 클라이언트 컴포넌트로 지정
+import Script from 'next/script';
+
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -104,6 +107,21 @@ export const metadata: Metadata = {
   colorScheme: 'light dark',
 };
 
+const ldJson = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: '적립식 투자 계산기',
+  url: 'https://stack-money-flow.vercel.app/',
+  description: '매월 적립식 투자로 10년·20년 후 자산 가치를 예측해보세요.',
+  applicationCategory: 'FinanceApplication',
+  author: {
+    '@type': 'Person',
+    name: 'Mr.Jeon',
+  },
+  image: 'https://stack-money-flow.vercel.app/og-image.png', // 리치 스니펫용 대표 이미지
+  isAccessibleForFree: true, // 무료 웹앱임을 명시
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -111,6 +129,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* JSON-LD 스크립트 삽입 */}
+        <Script
+          id="structured-data"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          // Script 태그 안에 문자열로 JSON을 직접 넣어야 합니다.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }}
+        />
+      </head>
       <body
         suppressHydrationWarning
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
