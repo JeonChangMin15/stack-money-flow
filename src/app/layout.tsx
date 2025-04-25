@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/common/theme-provider';
 import Header from '@/components/common/header';
@@ -124,6 +126,8 @@ export default function RootLayout({
               <Header />
               <div className="min-h-[calc(100dvh-120px)] bg-white px-8 py-8 dark:bg-gray-900">
                 {children}
+                <Analytics />
+                <SpeedInsights />
               </div>
               <Nav />
             </div>
