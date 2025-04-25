@@ -17,6 +17,8 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
+export const metadataBase = new URL('https://stack-money-flow.vercel.app/'); // ← 실제 배포 도메인으로 바꿔주세요
+
 export const metadata: Metadata = {
   // ■ 기본 제목 설정: default와 template을 분리해 가독성↑
   title: {
@@ -79,12 +81,6 @@ export const metadata: Metadata = {
     icon: '/favicon.ico',
   },
 
-  // ■ 테마 컬러 (Light/Dark)
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f7fafc' },
-    { media: '(prefers-color-scheme: dark)', color: '#1a202c' },
-  ],
-
   // ■ robots 메타: 검색엔진 로봇 제어
   robots: {
     index: true,
@@ -101,6 +97,17 @@ export const metadata: Metadata = {
 
   // ■ 기타
   referrer: 'strict-origin-when-cross-origin',
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f7fafc' },
+    { media: '(prefers-color-scheme: dark)', color: '#1a202c' },
+  ],
   colorScheme: 'light dark',
 };
 
