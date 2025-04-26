@@ -106,6 +106,7 @@ const Portfolio = () => {
               handleInputAsset(newValue, id, 'averageProfit')
             }
             placeholder="연 평균 수익률을 입력하세요"
+            isNumberic={false}
           />
         </div>
       ))}

@@ -76,6 +76,7 @@ const Analyze = () => {
           className="btn-pressable ml-auto w-[150px]"
           variant="secondary"
           onClick={addSimulation}
+          disabled={simulation.length === 3}
         >
           시나리오 추가하기
         </Button>
@@ -116,6 +117,7 @@ const Analyze = () => {
               handleInputSimulation(newValue, id, 'averageProfit')
             }
             placeholder="연 평균 수익률을 입력하세요"
+            isNumberic={false}
           />
         </div>
       ))}
@@ -129,7 +131,7 @@ const Analyze = () => {
       {simulationResult.length > 0 && (
         <div className="grid gap-4">
           <AnalyzeChart simulationResult={simulationResult} />
-          <span>투자별 최종 금액</span>
+          <span className="text-xl">투자별 최종 금액</span>
           {simulation.map(
             ({ id, initialAmount, monthAmount, averageProfit }) => (
               <div key={id} className="flex gap-4">

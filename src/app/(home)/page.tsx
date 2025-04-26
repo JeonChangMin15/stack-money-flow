@@ -92,6 +92,7 @@ export default function Home() {
         value={averageProfit}
         onChange={setAverageProfit}
         placeholder="연 평균 수익률을 입력하세요"
+        isNumberic={false}
       />
       <Button
         className="btn-pressable"
@@ -102,9 +103,10 @@ export default function Home() {
       </Button>
       <div className="grid gap-3 dark:text-white">
         {infoItems.map(({ label, value, unit }) => (
-          <div key={label} className="flex gap-3">
-            <span>{label}:</span>
-            <span className="font-bold text-gray-700 dark:text-white">
+          <div key={label} className="flex items-baseline">
+            {/* w-24 (6rem) 정도가 한글 레이블 최대 길이에 맞춰 충분할 거예요 */}
+            <span className="inline-block min-w-18 text-right">{label}:</span>
+            <span className="ml-2 font-bold text-gray-700 dark:text-white">
               {value > 0 ? `${value.toLocaleString()} ${unit}` : ''}
             </span>
           </div>

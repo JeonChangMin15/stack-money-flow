@@ -9,6 +9,7 @@ interface Props {
   value: string;
   onChange: (newValue: string) => void;
   placeholder: string;
+  isNumberic?: boolean;
 }
 
 const NumberInput = ({
@@ -17,13 +18,26 @@ const NumberInput = ({
   value,
   onChange,
   placeholder = '',
+  isNumberic = true,
 }: Props) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const onlyNums = e.target.value.replace(/,/g, '');
-    const cleaned = onlyNums.replace(/\D/g, '');
-    const withCommas = cleaned.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    let raw = e.target.value.replace(/,/g, '');
 
-    onChange(withCommas);
+    raw = raw.replace(/[^0-9.]/g, '');
+
+    // 3) 점으로 나눠서 정수/소수 구분
+    const [intPart, ...rest] = raw.split('.');
+    const fracPart = rest.join(''); // 여러 점 방어용
+
+    // 4) 정수 부분만 천 단위 콤마 적용
+    const formattedInt = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+    // 5) raw 에 점이 하나라도 있으면 점+소수부(빈 문자열도 포함) 붙이기
+    const newValue = raw.includes('.')
+      ? `${formattedInt}.${fracPart}`
+      : formattedInt;
+
+    onChange(newValue);
   };
 
   return (
@@ -35,8 +49,8 @@ const NumberInput = ({
         }`}
         id="number"
         type="text"
-        inputMode="numeric"
-        pattern="[0-9,]*"
+        inputMode={isNumberic ? 'numeric' : 'decimal'}
+        pattern="[0-9.,]*"
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
