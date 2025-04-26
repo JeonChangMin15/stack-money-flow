@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://stack-money-flow.vercel.app/
+
+# Sitemaps
+Sitemap: https://stack-money-flow.vercel.app/sitemap.xml
