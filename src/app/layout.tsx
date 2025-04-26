@@ -123,6 +123,10 @@ export default function RootLayout({
           name="google-site-verification"
           content="z26MSovhLjtSbVs75Zlf-_uVHeNTuswPTSJuPUnc_iM"
         />
+        <meta
+          name="naver-site-verification"
+          content="0b1ef49f9afcceb8a29a4bd2cc45effdb887c74e"
+        />
       </head>
       <body
         suppressHydrationWarning
