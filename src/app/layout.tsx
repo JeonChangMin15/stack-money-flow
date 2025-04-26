@@ -30,6 +30,11 @@ export const metadata: Metadata = {
   description:
     '매월 일정 금액을 적립 투자하여 10년·20년 후 내 자산 가치를 예측해보세요.',
 
+  verification: {
+    google:
+      'google-site-verification=bZj99lKWRKj7xCD1ylKUOPKhKBP8_Wjvd8qpPtUxn98',
+  }, // 여기여기
+
   // ■ 키워드: SEO 보조용도로 활용
   keywords: [
     '적립식 투자',
